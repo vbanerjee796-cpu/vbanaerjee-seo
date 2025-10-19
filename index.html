@@ -146,9 +146,36 @@
   <!-- 45 Placeholders for future tools -->
   <div id="future-tools">
     <!-- Example placeholders -->
-    <div class="tool" id="tool6"><h2>Tool 6 Placeholder</h2></div>
-    <div class="tool" id="tool7"><h2>Tool 7 Placeholder</h2></div>
-    <div class="tool" id="tool8"><h2>Tool 8 Placeholder</h2></div>
+    <div class="tool" id="word-counter">
+    <h2>Word Counter</h2>
+    <textarea id="wordInput" placeholder="Type or paste your content here..."></textarea>
+    <button onclick="countWords()">Count Words</button>
+    <p id="wordResult"></p>
+    </div>
+    
+    <div class="tool" id="keyword-density">
+    <h2>Keyword Density Checker</h2>
+    <textarea id="densityInput" placeholder="Enter your article..."></textarea>
+    <input type="text" id="keywordInput" placeholder="Enter keyword">
+    <button onclick="checkDensity()">Check Density</button>
+    <p id="densityResult"></p>
+    </div>
+    
+    <div class="tool" id="case-converter">
+    <h2>Text Case Converter</h2>
+    <textarea id="caseInput" placeholder="Enter text"></textarea>
+    <button onclick="toUpper()">UPPERCASE</button>
+    <button onclick="toLower()">lowercase</button>
+    <button onclick="toTitle()">Title Case</button>
+    <p id="caseResult"></p>
+    </div>
+
+    <div class="tool" id="char-counter">
+    <h2>Character Counter</h2>
+    <textarea id="charInput" placeholder="Enter text"></textarea>
+    <button onclick="countChars()">Count Characters</button>
+    <p id="charResult"></p>
+    </div>
     <!-- Continue up to 50 -->
   </div>
 
@@ -203,6 +230,49 @@
     const val = document.getElementById('htmlInput').value;
     document.getElementById('htmlResult').innerText = val.replace(/\s+/g, ' ').trim();
   }
+// Word Counter
+function countWords() {
+  const text = document.getElementById('wordInput').value.trim();
+  const count = text ? text.split(/\s+/).length : 0;
+  document.getElementById('wordResult').innerText = `Total Words: ${count}`;
+}
+
+// Keyword Density Checker
+function checkDensity() {
+  const text = document.getElementById('densityInput').value.toLowerCase();
+  const keyword = document.getElementById('keywordInput').value.toLowerCase().trim();
+  if (!text || !keyword) {
+    document.getElementById('densityResult').innerText = "Please enter both text and keyword.";
+    return;
+  }
+  const words = text.split(/\s+/);
+  const total = words.length;
+  const match = words.filter(w => w === keyword).length;
+  const density = ((match / total) * 100).toFixed(2);
+  document.getElementById('densityResult').innerText = `Keyword Density: ${density}% (${match}/${total})`;
+}
+
+// Case Converter
+function toUpper() {
+  const val = document.getElementById('caseInput').value;
+  document.getElementById('caseResult').innerText = val.toUpperCase();
+}
+function toLower() {
+  const val = document.getElementById('caseInput').value;
+  document.getElementById('caseResult').innerText = val.toLowerCase();
+}
+function toTitle() {
+  const val = document.getElementById('caseInput').value;
+  const title = val.replace(/\w\S*/g, w => w.charAt(0).toUpperCase() + w.substr(1).toLowerCase());
+  document.getElementById('caseResult').innerText = title;
+}
+
+// Character Counter
+function countChars() {
+  const val = document.getElementById('charInput').value;
+  document.getElementById('charResult').innerText = `Total Characters: ${val.length}`;
+}
+  
 </script>
 
 </body>
