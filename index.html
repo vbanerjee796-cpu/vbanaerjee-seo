@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VB SEO Tools</title>
+<meta name="description" content="Free SEO Tools for Meta Tags, URLs, Base64, HTML, YouTube Tags and more. 100% browser-based tools.">
+<link rel="icon" href="favicon.png" type="image/png">
+
+<!-- Dark mode CSS + Modern look -->
+<style>
+  :root {
+    --bg-color: #121212;
+    --text-color: #e0e0e0;
+    --card-bg: #1f1f1f;
+    --btn-bg: #6200ea;
+    --btn-hover: #3700b3;
+    --link-color: #bb86fc;
+  }
+  body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+  }
+  header {
+    text-align: center;
+    padding: 20px;
+    background: #1f1f1f;
+  }
+  header img {
+    max-width: 100px;
+    margin-bottom: 10px;
+  }
+  header h1 {
+    margin: 5px 0;
+  }
+  header p {
+    margin: 5px 0;
+    font-size: 1rem;
+    color: #ccc;
+  }
+  nav {
+    text-align: center;
+    margin: 20px 0;
+  }
+  nav a {
+    color: var(--link-color);
+    margin: 0 10px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  nav a:hover { text-decoration: underline; }
+
+  .tools-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  .tool {
+    background: var(--card-bg);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #000;
+  }
+  .tool h2 { margin-top: 0; }
+  .tool input, .tool textarea {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+  }
+  .tool button {
+    background: var(--btn-bg);
+    color: #fff;
+    padding: 8px 15px;
+    margin: 5px 5px 0 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .tool button:hover { background: var(--btn-hover); }
+  .ads { margin-top: 10px; padding: 10px; background: #333; text-align: center; font-size: 14px; color: #ccc; border-radius: 5px; }
+  footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    background: #1f1f1f;
+    color: #888;
+    font-size: 0.9rem;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <img src="header-image.png" alt="VB SEO Tools Logo">
+  <h1>VB SEO Tools</h1>
+  <p>Free & Browser-Based SEO Tools in Hindi + English</p>
+</header>
+
+<nav>
+  <a href="#meta-tool">Meta Title Checker</a>
+  <a href="#url-tool">URL Encoder/Decoder</a>
+  <a href="#base64-tool">Base64 Tool</a>
+  <a href="#html-tool">HTML Minifier/Beautifier</a>
+  <a href="#youtube-tool">YouTube Tags</a>
+</nav>
+
+<div class="tools-container">
+
+  <!-- Meta Title Length Checker -->
+  <div class="tool" id="meta-tool">
+    <h2>Meta Title Length Checker</h2>
+    <input type="text" id="metaInput" placeholder="Enter title">
+    <button onclick="checkTitleLen()">Check Length</button>
+    <p id="metaResult"></p>
+    <div class="ads">Ad Placeholder</div>
+  </div>
+
+  <!-- URL Encoder / Decoder -->
+  <div class="tool" id="url-tool">
+    <h2>URL Encoder / Decoder</h2>
+    <input type="text" id="urlInput" placeholder="Enter URL">
+    <button onclick="encodeURL()">Encode</button>
+    <button onclick="decodeURL()">Decode</button>
+    <p id="urlResult"></p>
+    <div class="ads">Ad Placeholder</div>
+  </div>
+
+  <!-- Base64 Tool -->
+  <div class="tool" id="base64-tool">
+    <h2>Base64 Encode / Decode</h2>
+    <input type="text" id="base64Input" placeholder="Enter text">
+    <button onclick="toBase64()">Encode</button>
+    <button onclick="fromBase64()">Decode</button>
+    <p id="base64Result"></p>
+    <div class="ads">Ad Placeholder</div>
+  </div>
+
+  <!-- HTML Minifier / Beautifier -->
+  <div class="tool" id="html-tool">
+    <h2>HTML Minifier / Beautifier</h2>
+    <textarea id="htmlInput" placeholder="Enter HTML"></textarea>
+    <button onclick="beautifyHTML()">Beautify</button>
+    <button onclick="minifyHTML()">Minify</button>
+    <p id="htmlResult"></p>
+    <div class="ads">Ad Placeholder</div>
+  </div>
+
+  <!-- YouTube Tags Extractor -->
+  <div class="tool" id="youtube-tool">
+    <h2>YouTube Tags Extractor</h2>
+    <input type="text" id="ytInput" placeholder="Enter video title or description">
+    <button onclick="extractYTtags()">Extract Tags</button>
+    <p id="ytResult"></p>
+    <div class="ads">Ad Placeholder</div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; <span id="year"></span> VB SEO Tools. All rights reserved.
+</footer>
+
+<script>
+  document.getElementById('year').innerText = new Date().getFullYear();
+
+  function checkTitleLen() {
+    const val = document.getElementById('metaInput').value;
+    document.getElementById('metaResult').innerText = 'Length: ' + val.length;
+  }
+
+  function encodeURL() {
+    const val = document.getElementById('urlInput').value;
+    document.getElementById('urlResult').innerText = encodeURIComponent(val);
+  }
+
+  function decodeURL() {
+    const val = document.getElementById('urlInput').value;
+    document.getElementById('urlResult').innerText = decodeURIComponent(val);
+  }
+
+  function toBase64() {
+    const val = document.getElementById('base64Input').value;
+    document.getElementById('base64Result').innerText = btoa(val);
+  }
+
+  function fromBase64() {
+    const val = document.getElementById('base64Input').value;
+    document.getElementById('base64Result').innerText = atob(val);
+  }
+
+  function beautifyHTML() {
+    const val = document.getElementById('htmlInput').value;
+    document.getElementById('htmlResult').innerText = val.replace(/></g, '>\n<');
+  }
+
+  function minifyHTML() {
+    const val = document.getElementById('htmlInput').value;
+    document.getElementById('htmlResult').innerText = val.replace(/\s+/g, ' ').trim();
+  }
+
+  function extractYTtags() {
+    const val = document.getElementById('ytInput').value;
+    const tags = val.split(' ').map(w => w.toLowerCase());
+    document.getElementById('ytResult').innerText = tags.join(', ');
+  }
+</script>
+
+</body>
+</html>
