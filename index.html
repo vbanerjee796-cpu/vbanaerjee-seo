@@ -1,190 +1,171 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>VB SEO Tools</title>
-  <meta name="description" content="50+ Free SEO Tools - Meta, URL, Base64, JSON, HTML, YouTube Tags & more. 100% browser-based tools!">
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VB SEO Tools</title>
+<meta name="robots" content="index, follow">
+<meta name="description" content="Free SEO Tools for Meta Tags, URLs, Base64, HTML, YouTube Tags and more. 100% browser-based tools.">
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 
-  <!-- Dark Metallic Modern CSS -->
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin:0;
-      padding:0;
-      background: #1c1c1c;
-      color:#f0f0f0;
-    }
-    header {
-      background: #272727;
-      padding: 20px;
-      text-align: center;
-    }
-    header img {
-      max-height: 60px;
-    }
-    nav {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      background: #333;
-      padding: 10px;
-    }
-    nav a {
-      color: #f0f0f0;
-      text-decoration: none;
-      margin: 5px 10px;
-      padding: 8px 12px;
-      border-radius: 5px;
-      background: #444;
-      transition: 0.3s;
-    }
-    nav a:hover {
-      background: #007bff;
-    }
-    .tools-container {
-      padding: 20px;
-      max-width: 1200px;
-      margin:auto;
-    }
-    .tool {
-      border: 1px solid #555;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 8px;
-      background: #2a2a2a;
-    }
-    .tool input, .tool textarea {
-      width: 100%;
-      padding: 8px;
-      margin: 5px 0;
-      border: 1px solid #777;
-      border-radius: 4px;
-      background:#1c1c1c;
-      color:#f0f0f0;
-    }
-    .tool button {
-      padding: 8px 15px;
-      margin-top: 5px;
-      background: #007BFF;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .tool button:hover {
-      background: #0056b3;
-    }
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #272727;
-      margin-top: 30px;
-    }
-  </style>
+<!-- Dark Metallic Modern CSS -->
+<style>
+  body { font-family: Arial, sans-serif; margin:0; padding:0; background:#1c1c1c; color:#f1f1f1; }
+  header { background:#111; padding:20px; text-align:center; }
+  header img { max-height:60px; }
+  h1, h2 { color:#f1f1f1; margin:10px 0; }
+  a { color:#00cfff; text-decoration:none; }
+  a:hover { text-decoration:underline; }
+  nav { background:#222; padding:10px; text-align:center; flex-wrap: wrap; }
+  nav a { margin:0 10px; display:inline-block; margin-bottom:5px; }
+  .tools-container { display:grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap:15px; padding:20px; }
+  .tool { background:#2a2a2a; padding:15px; border-radius:8px; box-shadow:0 0 10px rgba(0,0,0,0.5); }
+  .tool input, .tool textarea { width:100%; padding:8px; margin:5px 0; border-radius:4px; border:none; }
+  .tool button { padding:8px 15px; margin:5px 5px 0 0; background:#00cfff; color:#111; border:none; border-radius:4px; cursor:pointer; }
+  .tool button:hover { background:#00a3cc; }
+  footer { background:#111; text-align:center; padding:15px; margin-top:20px; }
+</style>
+
+<!-- Adsense Script Placeholder -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9433936362561899"
+crossorigin="anonymous"></script>
 </head>
 <body>
 
 <header>
-  <img src="header-placeholder.png" alt="VB SEO Tools Header">
-  <h1>VB SEO Tools 🌐</h1>
-  <p>50+ Free SEO Tools - Browser Based & Fast!</p>
+  <img src="header-image.png" alt="VB SEO Tools Header">
+  <h1>VB SEO Tools</h1>
+  <p>Free & Browser-Based SEO Tools | 50+ Tools Coming Soon!</p>
 </header>
 
 <!-- Quick Navigation -->
-<nav id="quick-links">
-  <a href="#meta-tool">Meta Description Analyzer</a>
-  <a href="#title-tool">Title Length Checker</a>
-  <a href="#url-tool">URL Encoder / Decoder</a>
-  <a href="#base64-tool">Base64 Converter</a>
-  <a href="#html-tool">HTML Minifier / Beautifier</a>
-  <!-- Add more links as needed -->
+<nav id="quick-nav">
+  <a href="#tool-1">Title Length Checker</a> |
+  <a href="#tool-2">Meta Description Analyzer</a> |
+  <a href="#tool-3">URL Encoder</a> |
+  <a href="#tool-4">URL Decoder</a> |
+  <a href="#tool-5">Base64 Encode/Decode</a>
+  <!-- Future tools -->
+  <a href="#tool-6">Tool 6</a> |
+  <a href="#tool-7">Tool 7</a> |
+  <a href="#tool-8">Tool 8</a> |
+  <a href="#tool-9">Tool 9</a> |
+  <a href="#tool-10">Tool 10</a>
+  <!-- Continue up to Tool 50 -->
 </nav>
 
 <div class="tools-container">
 
-  <!-- 5 Working SEO Tools -->
-  <div class="tool" id="meta-tool">
-    <h2>Meta Description Analyzer</h2>
-    <textarea id="metaInput" placeholder="Enter meta description"></textarea>
-    <button onclick="analyzeMeta()">Analyze</button>
-    <p id="metaResult"></p>
-  </div>
-
-  <div class="tool" id="title-tool">
+  <!-- Functional Tools 1-5 -->
+  <div class="tool" id="tool-1">
     <h2>Title Length Checker</h2>
     <input type="text" id="titleInput" placeholder="Enter title">
-    <button onclick="checkTitle()">Check Length</button>
+    <button onclick="checkTitleLen()">Check Length</button>
     <p id="titleResult"></p>
   </div>
 
-  <div class="tool" id="url-tool">
-    <h2>URL Encoder / Decoder</h2>
+  <div class="tool" id="tool-2">
+    <h2>Meta Description Analyzer</h2>
+    <textarea id="metaInput" placeholder="Enter meta description"></textarea>
+    <button onclick="analyzeMetaDesc()">Analyze</button>
+    <p id="metaResult"></p>
+  </div>
+
+  <div class="tool" id="tool-3">
+    <h2>URL Encoder</h2>
     <input type="text" id="urlInput" placeholder="Enter URL">
     <button onclick="encodeURL()">Encode</button>
-    <button onclick="decodeURL()">Decode</button>
     <p id="urlResult"></p>
   </div>
 
-  <div class="tool" id="base64-tool">
-    <h2>Base64 Converter</h2>
+  <div class="tool" id="tool-4">
+    <h2>URL Decoder</h2>
+    <input type="text" id="urlDecodeInput" placeholder="Enter encoded URL">
+    <button onclick="decodeURL()">Decode</button>
+    <p id="urlDecodeResult"></p>
+  </div>
+
+  <div class="tool" id="tool-5">
+    <h2>Base64 Encode / Decode</h2>
     <input type="text" id="base64Input" placeholder="Enter text">
     <button onclick="toBase64()">Encode</button>
     <button onclick="fromBase64()">Decode</button>
     <p id="base64Result"></p>
   </div>
 
-  <div class="tool" id="html-tool">
-    <h2>HTML Minifier / Beautifier</h2>
-    <textarea id="htmlInput" placeholder="Enter HTML"></textarea>
-    <button onclick="beautifyHTML()">Beautify</button>
-    <button onclick="minifyHTML()">Minify</button>
-    <p id="htmlResult"></p>
-  </div>
-
-  <!-- 45 Placeholders for future tools -->
-  <div id="future-tools">
-    <!-- Example placeholders -->
-    <div class="tool" id="tool6"><h2>Tool 6 Placeholder</h2></div>
-    <div class="tool" id="tool7"><h2>Tool 7 Placeholder</h2></div>
-    <div class="tool" id="tool8"><h2>Tool 8 Placeholder</h2></div>
-    <!-- Continue up to 50 -->
-  </div>
+  <!-- Placeholders Tools 6-50 -->
+  <div class="tool" id="tool-6"><h2>Tool 6</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-7"><h2>Tool 7</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-8"><h2>Tool 8</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-9"><h2>Tool 9</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-10"><h2>Tool 10</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-11"><h2>Tool 11</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-12"><h2>Tool 12</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-13"><h2>Tool 13</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-14"><h2>Tool 14</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-15"><h2>Tool 15</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-16"><h2>Tool 16</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-17"><h2>Tool 17</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-18"><h2>Tool 18</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-19"><h2>Tool 19</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-20"><h2>Tool 20</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-21"><h2>Tool 21</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-22"><h2>Tool 22</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-23"><h2>Tool 23</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-24"><h2>Tool 24</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-25"><h2>Tool 25</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-26"><h2>Tool 26</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-27"><h2>Tool 27</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-28"><h2>Tool 28</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-29"><h2>Tool 29</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-30"><h2>Tool 30</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-31"><h2>Tool 31</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-32"><h2>Tool 32</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-33"><h2>Tool 33</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-34"><h2>Tool 34</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-35"><h2>Tool 35</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-36"><h2>Tool 36</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-37"><h2>Tool 37</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-38"><h2>Tool 38</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-39"><h2>Tool 39</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-40"><h2>Tool 40</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-41"><h2>Tool 41</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-42"><h2>Tool 42</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-43"><h2>Tool 43</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-44"><h2>Tool 44</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-45"><h2>Tool 45</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-46"><h2>Tool 46</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-47"><h2>Tool 47</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-48"><h2>Tool 48</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-49"><h2>Tool 49</h2><p>Coming Soon!</p></div>
+  <div class="tool" id="tool-50"><h2>Tool 50</h2><p>Coming Soon!</p></div>
 
 </div>
 
 <footer>
-  &copy; <span id="year"></span> VB SEO Tools. All rights reserved.
+  &copy; <span id="year"></span> VB SEO Tools. All Rights Reserved.
 </footer>
 
+<!-- JS Functions -->
 <script>
-  // Auto year
   document.getElementById('year').innerText = new Date().getFullYear();
 
-  // Meta Analyzer
-  function analyzeMeta() {
-    const val = document.getElementById('metaInput').value;
-    document.getElementById('metaResult').innerText = val.length <= 160 ? '✅ OK' : '⚠️ Too long';
-  }
-
-  // Title Length
-  function checkTitle() {
+  function checkTitleLen() {
     const val = document.getElementById('titleInput').value;
     document.getElementById('titleResult').innerText = 'Length: ' + val.length;
   }
-
-  // URL Encode / Decode
+  function analyzeMetaDesc() {
+    const val = document.getElementById('metaInput').value;
+    document.getElementById('metaResult').innerText = val.length <= 160 ? 'OK' : 'Too long';
+  }
   function encodeURL() {
     const val = document.getElementById('urlInput').value;
     document.getElementById('urlResult').innerText = encodeURIComponent(val);
   }
   function decodeURL() {
-    const val = document.getElementById('urlInput').value;
-    document.getElementById('urlResult').innerText = decodeURIComponent(val);
+    const val = document.getElementById('urlDecodeInput').value;
+    document.getElementById('urlDecodeResult').innerText = decodeURIComponent(val);
   }
-
-  // Base64
   function toBase64() {
     const val = document.getElementById('base64Input').value;
     document.getElementById('base64Result').innerText = btoa(val);
@@ -193,18 +174,8 @@
     const val = document.getElementById('base64Input').value;
     document.getElementById('base64Result').innerText = atob(val);
   }
-
-  // HTML Beautify / Minify
-  function beautifyHTML() {
-    const val = document.getElementById('htmlInput').value;
-    document.getElementById('htmlResult').innerText = val.replace(/></g, '>\n<');
-  }
-  function minifyHTML() {
-    const val = document.getElementById('htmlInput').value;
-    document.getElementById('htmlResult').innerText = val.replace(/\s+/g, ' ').trim();
-  }
 </script>
 
 </body>
       </html>
-  
+                                              
