@@ -1,215 +1,526 @@
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VB SEO Tools</title>
-<meta name="description" content="Free SEO Tools for Meta Tags, URLs, Base64, HTML, YouTube Tags and more. 100% browser-based tools.">
-<link rel="icon" href="favicon.png" type="image/png">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>VBanerjee SEO Tools — 50 Free SEO Utilities</title>
+  <meta name="description" content="VBanerjee SEO Tools — 50 free browser-based SEO utilities: Meta, URL encode/decode, Base64, JSON format/minify, HTML beautifier/minifier, keyword tools, sitemap, robots, and more." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://vbanerjee796-cpu.github.io/vbanaerjee-seo/" />
 
-<!-- Dark mode CSS + Modern look -->
-<style>
-  :root {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg: #1f1f1f;
-    --btn-bg: #6200ea;
-    --btn-hover: #3700b3;
-    --link-color: #bb86fc;
-  }
-  body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-  }
-  header {
-    text-align: center;
-    padding: 20px;
-    background: #1f1f1f;
-  }
-  header img {
-    max-width: 100px;
-    margin-bottom: 10px;
-  }
-  header h1 {
-    margin: 5px 0;
-  }
-  header p {
-    margin: 5px 0;
-    font-size: 1rem;
-    color: #ccc;
-  }
-  nav {
-    text-align: center;
-    margin: 20px 0;
-  }
-  nav a {
-    color: var(--link-color);
-    margin: 0 10px;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  nav a:hover { text-decoration: underline; }
+  <!-- Favicon placeholder (upload favicon.png in repo) -->
+  <link rel="icon" href="favicon.png" type="image/png">
 
-  .tools-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-    padding: 20px;
-  }
-  .tool {
-    background: var(--card-bg);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #000;
-  }
-  .tool h2 { margin-top: 0; }
-  .tool input, .tool textarea {
-    width: 100%;
-    padding: 8px;
-    margin: 5px 0;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-  }
-  .tool button {
-    background: var(--btn-bg);
-    color: #fff;
-    padding: 8px 15px;
-    margin: 5px 5px 0 0;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  .tool button:hover { background: var(--btn-hover); }
-  .ads { margin-top: 10px; padding: 10px; background: #333; text-align: center; font-size: 14px; color: #ccc; border-radius: 5px; }
-  footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    background: #1f1f1f;
-    color: #888;
-    font-size: 0.9rem;
-  }
-</style>
+  <!-- Dark metallic modern CSS -->
+  <style>
+    :root{
+      --bg:#0a0b0d;
+      --panel:#121417;
+      --muted:#9aa4b2;
+      --accent:#5dd4ff;
+      --accent2:#8a6bff;
+      --card:#0f1113;
+      --glass: rgba(255,255,255,0.03);
+    }
+    html,body{height:100%}
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background: linear-gradient(180deg,#060607 0%, #0b0d11 100%);
+      color:#e6eef6;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.5;
+    }
+
+    /* Header */
+    header{
+      padding:24px 16px;
+      text-align:center;
+      background:linear-gradient(90deg,var(--accent),var(--accent2));
+      color:#020617;
+      box-shadow:0 6px 24px rgba(13,15,20,0.6);
+    }
+    header .brand{
+      display:flex;
+      align-items:center;
+      gap:14px;
+      justify-content:center;
+      flex-wrap:wrap;
+    }
+    header img.logo{
+      width:72px;height:72px;border-radius:12px;background:linear-gradient(135deg,#111,#222);
+      object-fit:cover;
+    }
+    header h1{margin:0;font-size:1.6rem;letter-spacing:0.4px}
+    header p{margin:6px 0 0;color:#071022;font-weight:600;opacity:0.95}
+
+    /* Quick nav sticky */
+    #quick{
+      position:sticky; top:0; z-index:1200;
+      background:linear-gradient(180deg, rgba(6,7,9,0.95), rgba(6,7,9,0.9));
+      border-bottom:1px solid rgba(255,255,255,0.03);
+      padding:8px 12px;
+      display:flex; gap:8px; align-items:center; overflow:auto;
+    }
+    #quick a{color:var(--accent); text-decoration:none; padding:8px 10px; border-radius:8px; font-weight:600; white-space:nowrap;}
+    #quick a:hover{background:rgba(255,255,255,0.03); text-decoration:none}
+
+    /* Container */
+    .wrap{max-width:1100px;margin:20px auto;padding:0 14px;}
+
+    /* Grid for tools */
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:16px;
+      align-items:start;
+    }
+
+    .card{
+      background:linear-gradient(180deg,var(--card), #0d1114);
+      border:1px solid rgba(255,255,255,0.03);
+      padding:14px;
+      border-radius:12px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.6);
+    }
+    .card h2{margin:0 0 8px;color:var(--accent2);font-size:1.05rem}
+    .card p.desc{margin:0 0 8px;color:var(--muted);font-size:0.9rem}
+
+    .control{display:flex;gap:8px;flex-wrap:wrap}
+    .control input, .control textarea, .control select{
+      background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;padding:8px;border-radius:8px;
+      width:100%;
+    }
+    .control textarea{min-height:90px;resize:vertical}
+
+    .btn{background:linear-gradient(90deg,var(--accent),var(--accent2));color:#021120;border:none;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+    .btn.secondary{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--accent)}
+    .out{background:rgba(255,255,255,0.02);padding:10px;border-radius:8px;white-space:pre-wrap;font-family:monospace;color:#dbe9ff}
+
+    .small{font-size:0.85rem;color:var(--muted);margin-top:8px}
+
+    footer{margin-top:30px;padding:22px;text-align:center;color:var(--muted);border-top:1px solid rgba(255,255,255,0.03)}
+    a.link{color:var(--accent);text-decoration:none}
+
+    /* Responsive helpers */
+    @media(max-width:520px){
+      header h1{font-size:1.25rem}
+      #quick a{padding:8px}
+    }
+  </style>
 </head>
 <body>
 
-<header>
-  <img src="header-image.png" alt="VB SEO Tools Logo">
-  <h1>VB SEO Tools</h1>
-  <p>Free & Browser-Based SEO Tools in Hindi + English</p>
-</header>
+  <!-- Header -->
+  <header>
+    <div class="brand">
+      <!-- header-image.png placeholder; upload your header-image.png in repo root -->
+      <img class="logo" src="header-image.png" alt="VB SEO Logo" onerror="this.style.display='none'">
+      <div>
+        <h1>VBanerjee SEO Tools</h1>
+        <p>Dark Metallic • 50 Free Browser-based SEO Utilities</p>
+      </div>
+    </div>
+  </header>
 
-<nav>
-  <a href="#meta-tool">Meta Title Checker</a>
-  <a href="#url-tool">URL Encoder/Decoder</a>
-  <a href="#base64-tool">Base64 Tool</a>
-  <a href="#html-tool">HTML Minifier/Beautifier</a>
-  <a href="#youtube-tool">YouTube Tags</a>
-</nav>
-
-<div class="tools-container">
-
-  <!-- Meta Title Length Checker -->
-  <div class="tool" id="meta-tool">
-    <h2>Meta Title Length Checker</h2>
-    <input type="text" id="metaInput" placeholder="Enter title">
-    <button onclick="checkTitleLen()">Check Length</button>
-    <p id="metaResult"></p>
-    <div class="ads">Ad Placeholder</div>
+  <!-- Quick nav -->
+  <div id="quick">
+    <!-- These links jump to tool sections; kept short for readability -->
+    <!-- You can scroll horizontally on mobile -->
+    <a href="#tool1">Title</a>
+    <a href="#tool2">MetaDesc</a>
+    <a href="#tool3">URL</a>
+    <a href="#tool4">Base64</a>
+    <a href="#tool5">JSON</a>
+    <a href="#tool6">HTML</a>
+    <a href="#tool7">YT Tags</a>
+    <a href="#tool8">Keyword</a>
+    <a href="#tool9">WordCnt</a>
+    <a href="#tool10">CharCnt</a>
+    <a href="#tool11">Robots</a>
+    <a href="#tool12">Sitemap</a>
+    <a href="#tool13">AltGen</a>
+    <a href="#tool14">Case</a>
+    <a href="#tool15">Domain</a>
+    <a href="#tool16">Backlink</a>
+    <a href="#tool17">PageSpeed</a>
+    <a href="#tool18">SEO Score</a>
+    <a href="#tool19">KW Suggest</a>
+    <a href="#tool20">LSI</a>
+    <a href="#tool21">TitleGen</a>
+    <a href="#tool22">Htags</a>
+    <a href="#tool23">InternalLink</a>
+    <a href="#tool24">ExternalLink</a>
+    <a href="#tool25">AnchorText</a>
+    <a href="#tool26">Favicon</a>
+    <a href="#tool27">OG</a>
+    <a href="#tool28">Twitter</a>
+    <a href="#tool29">Schema</a>
+    <a href="#tool30">Redirect</a>
+    <a href="#tool31">SSL</a>
+    <a href="#tool32">HTTPHdr</a>
+    <a href="#tool33">MobileTest</a>
+    <a href="#tool34">AMP</a>
+    <a href="#tool35">CSSMin</a>
+    <a href="#tool36">JSMin</a>
+    <a href="#tool37">Contrast</a>
+    <a href="#tool38">MetaRefresh</a>
+    <a href="#tool39">Server</a>
+    <a href="#tool40">IP Lookup</a>
+    <a href="#tool41">Whois</a>
+    <a href="#tool42">RobotsTester</a>
+    <a href="#tool43">SitemapVal</a>
+    <a href="#tool44">BrokenLink</a>
+    <a href="#tool45">PageAuth</a>
+    <a href="#tool46">DomainAuth</a>
+    <a href="#tool47">Competitor</a>
+    <a href="#tool48">JSON-LD</a>
+    <a href="#tool49">Readability</a>
+    <a href="#tool50">Custom Tool</a>
   </div>
 
-  <!-- URL Encoder / Decoder -->
-  <div class="tool" id="url-tool">
-    <h2>URL Encoder / Decoder</h2>
-    <input type="text" id="urlInput" placeholder="Enter URL">
-    <button onclick="encodeURL()">Encode</button>
-    <button onclick="decodeURL()">Decode</button>
-    <p id="urlResult"></p>
-    <div class="ads">Ad Placeholder</div>
-  </div>
+  <div class="wrap">
+    <!-- Main grid: two columns on wide screens -->
+    <div class="grid">
 
-  <!-- Base64 Tool -->
-  <div class="tool" id="base64-tool">
-    <h2>Base64 Encode / Decode</h2>
-    <input type="text" id="base64Input" placeholder="Enter text">
-    <button onclick="toBase64()">Encode</button>
-    <button onclick="fromBase64()">Decode</button>
-    <p id="base64Result"></p>
-    <div class="ads">Ad Placeholder</div>
-  </div>
+      <!-- TOOL 1: Title Length Checker -->
+      <div class="card" id="tool1">
+        <h2>Meta Title Length Checker</h2>
+        <p class="desc">Check title character length and get suggested trimming tips.</p>
+        <div class="control">
+          <input id="title_input" placeholder="Enter page title...">
+          <button class="btn" onclick="titleLength()">Check</button>
+        </div>
+        <div class="out" id="title_out">Result will appear here.</div>
+        <div class="small">Recommended ≤ 60 characters for desktop SERP.</div>
+      </div>
 
-  <!-- HTML Minifier / Beautifier -->
-  <div class="tool" id="html-tool">
-    <h2>HTML Minifier / Beautifier</h2>
-    <textarea id="htmlInput" placeholder="Enter HTML"></textarea>
-    <button onclick="beautifyHTML()">Beautify</button>
-    <button onclick="minifyHTML()">Minify</button>
-    <p id="htmlResult"></p>
-    <div class="ads">Ad Placeholder</div>
-  </div>
+      <!-- TOOL 2: Meta Description Analyzer -->
+      <div class="card" id="tool2">
+        <h2>Meta Description Analyzer</h2>
+        <p class="desc">Counts characters & words; suggests trim if too long.</p>
+        <div class="control">
+          <textarea id="desc_input" placeholder="Enter meta description..."></textarea>
+          <button class="btn" onclick="analyzeDesc()">Analyze</button>
+        </div>
+        <div class="out" id="desc_out">Result will appear here.</div>
+      </div>
 
-  <!-- YouTube Tags Extractor -->
-  <div class="tool" id="youtube-tool">
-    <h2>YouTube Tags Extractor</h2>
-    <input type="text" id="ytInput" placeholder="Enter video title or description">
-    <button onclick="extractYTtags()">Extract Tags</button>
-    <p id="ytResult"></p>
-    <div class="ads">Ad Placeholder</div>
-  </div>
+      <!-- TOOL 3: URL Encoder -->
+      <div class="card" id="tool3">
+        <h2>URL Encode</h2>
+        <div class="control">
+          <input id="url_enc_in" placeholder="Enter text or URL to encode">
+          <button class="btn" onclick="doEncode()">Encode</button>
+        </div>
+        <div class="out" id="url_enc_out">Encoded result</div>
+      </div>
 
-</div>
+      <!-- TOOL 4: URL Decoder -->
+      <div class="card" id="tool4">
+        <h2>URL Decode</h2>
+        <div class="control">
+          <input id="url_dec_in" placeholder="Enter encoded string">
+          <button class="btn" onclick="doDecode()">Decode</button>
+        </div>
+        <div class="out" id="url_dec_out">Decoded result</div>
+      </div>
 
-<footer>
-  &copy; <span id="year"></span> VB SEO Tools. All rights reserved.
-</footer>
+      <!-- TOOL 5: Base64 -->
+      <div class="card" id="tool5">
+        <h2>Base64 Encode / Decode</h2>
+        <div class="control">
+          <input id="b64_in" placeholder="Enter text">
+          <button class="btn" onclick="b64Encode()">Encode</button>
+          <button class="btn secondary" onclick="b64Decode()">Decode</button>
+        </div>
+        <div class="out" id="b64_out">Result</div>
+      </div>
 
-<script>
-  document.getElementById('year').innerText = new Date().getFullYear();
+      <!-- TOOL 6: JSON Formatter -->
+      <div class="card" id="tool6">
+        <h2>JSON Formatter</h2>
+        <div class="control">
+          <textarea id="json_in" placeholder='Paste JSON here ({"a":1})'></textarea>
+          <button class="btn" onclick="jsonFormat()">Format</button>
+        </div>
+        <div class="out" id="json_out">Formatted JSON / error</div>
+      </div>
 
-  function checkTitleLen() {
-    const val = document.getElementById('metaInput').value;
-    document.getElementById('metaResult').innerText = 'Length: ' + val.length;
-  }
+      <!-- TOOL 7: JSON Minifier -->
+      <div class="card" id="tool7">
+        <h2>JSON Minifier</h2>
+        <div class="control">
+          <textarea id="jsonmin_in" placeholder='Paste JSON here'></textarea>
+          <button class="btn" onclick="jsonMinify()">Minify</button>
+        </div>
+        <div class="out" id="jsonmin_out">Minified JSON / error</div>
+      </div>
 
-  function encodeURL() {
-    const val = document.getElementById('urlInput').value;
-    document.getElementById('urlResult').innerText = encodeURIComponent(val);
-  }
+      <!-- TOOL 8: HTML Beautify -->
+      <div class="card" id="tool8">
+        <h2>HTML Beautify</h2>
+        <div class="control">
+          <textarea id="html_in" placeholder="Paste HTML"></textarea>
+          <button class="btn" onclick="htmlBeautify()">Beautify</button>
+        </div>
+        <div class="out" id="html_out">Beautified HTML</div>
+      </div>
 
-  function decodeURL() {
-    const val = document.getElementById('urlInput').value;
-    document.getElementById('urlResult').innerText = decodeURIComponent(val);
-  }
+      <!-- TOOL 9: HTML Minify -->
+      <div class="card" id="tool9">
+        <h2>HTML Minify</h2>
+        <div class="control">
+          <textarea id="htmlmin_in" placeholder="Paste HTML"></textarea>
+          <button class="btn" onclick="htmlMinify()">Minify</button>
+        </div>
+        <div class="out" id="htmlmin_out">Minified HTML</div>
+      </div>
 
-  function toBase64() {
-    const val = document.getElementById('base64Input').value;
-    document.getElementById('base64Result').innerText = btoa(val);
-  }
+      <!-- TOOL 10: YouTube Tags Extractor -->
+      <div class="card" id="tool10">
+        <h2>YouTube Tags Extractor</h2>
+        <div class="control">
+          <input id="yt_in" placeholder="Paste title/description or tags line">
+          <button class="btn" onclick="ytExtract()">Extract</button>
+        </div>
+        <div class="out" id="yt_out">tags, comma separated</div>
+      </div>
 
-  function fromBase64() {
-    const val = document.getElementById('base64Input').value;
-    document.getElementById('base64Result').innerText = atob(val);
-  }
+      <!-- TOOL 11: Keyword Density -->
+      <div class="card" id="tool11">
+        <h2>Keyword Density Checker</h2>
+        <div class="control">
+          <textarea id="kw_in" placeholder="Paste text..."></textarea>
+          <button class="btn" onclick="kwDensity()">Check</button>
+        </div>
+        <div class="out" id="kw_out"></div>
+      </div>
 
-  function beautifyHTML() {
-    const val = document.getElementById('htmlInput').value;
-    document.getElementById('htmlResult').innerText = val.replace(/></g, '>\n<');
-  }
+      <!-- TOOL 12: Title Tag Generator (simple heuristic) -->
+      <div class="card" id="tool12">
+        <h2>Title Tag Generator</h2>
+        <div class="control">
+          <input id="tgen_kw" placeholder="Primary keyword">
+          <input id="tgen_brand" placeholder="Brand (optional)">
+          <button class="btn" onclick="titleGen()">Generate</button>
+        </div>
+        <div class="out" id="tgen_out"></div>
+      </div>
 
-  function minifyHTML() {
-    const val = document.getElementById('htmlInput').value;
-    document.getElementById('htmlResult').innerText = val.replace(/\s+/g, ' ').trim();
-  }
+      <!-- TOOL 13: Robots.txt Generator -->
+      <div class="card" id="tool13">
+        <h2>Robots.txt Generator</h2>
+        <div class="control">
+          <textarea id="robots_in" placeholder="Add rules e.g. Disallow: /private"></textarea>
+          <button class="btn" onclick="generateRobots()">Generate</button>
+        </div>
+        <div class="out" id="robots_out"></div>
+      </div>
 
-  function extractYTtags() {
-    const val = document.getElementById('ytInput').value;
-    const tags = val.split(' ').map(w => w.toLowerCase());
-    document.getElementById('ytResult').innerText = tags.join(', ');
-  }
-</script>
+      <!-- TOOL 14: Sitemap Generator (creates XML and download link) -->
+      <div class="card" id="tool14">
+        <h2>Sitemap Generator</h2>
+        <p class="small">Enter one URL per line (use full absolute URLs). Click Generate → Download sitemap.xml</p>
+        <div class="control">
+          <textarea id="sitemap_in" placeholder="https://example.com/\nhttps://example.com/page1"></textarea>
+          <button class="btn" onclick="generateSitemap()">Generate & Download</button>
+        </div>
+        <div class="out" id="sitemap_out">XML preview will appear here</div>
+      </div>
 
-</body>
-</html>
+      <!-- TOOL 15: Image Alt Text Generator (simple heuristic) -->
+      <div class="card" id="tool15">
+        <h2>Image Alt Text Generator</h2>
+        <div class="control">
+          <input id="alt_in" placeholder="Describe image (e.g. 'boy playing cricket')">
+          <button class="btn" onclick="altGen()">Generate Alt</button>
+        </div>
+        <div class="out" id="alt_out"></div>
+      </div>
+
+      <!-- TOOL 16: Text Case Converter -->
+      <div class="card" id="tool16">
+        <h2>Text Case Converter</h2>
+        <div class="control">
+          <textarea id="case_in" placeholder="Enter text..."></textarea>
+          <button class="btn" onclick="toUpper()">UPPER</button>
+          <button class="btn" onclick="toLower()">lower</button>
+          <button class="btn" onclick="toTitleCase()">Title Case</button>
+        </div>
+        <div class="out" id="case_out"></div>
+      </div>
+
+      <!-- TOOL 17: Domain Age (demo) -->
+      <div class="card" id="tool17">
+        <h2>Domain Age (demo)</h2>
+        <div class="control">
+          <input id="domain_in" placeholder="example.com">
+          <button class="btn" onclick="domainAge()">Check (demo)</button>
+        </div>
+        <div class="out" id="domain_out">Demo result — for exact check use WHOIS API</div>
+      </div>
+
+      <!-- TOOL 18: Backlink Maker (demo list) -->
+      <div class="card" id="tool18">
+        <h2>Backlink Maker (demo)</h2>
+        <div class="control">
+          <input id="back_in" placeholder="https://yourdomain.com">
+          <button class="btn" onclick="backlinkMaker()">Generate</button>
+        </div>
+        <div class="out" id="back_out"></div>
+      </div>
+
+      <!-- TOOL 19: PageSpeed (demo random) -->
+      <div class="card" id="tool19">
+        <h2>PageSpeed Score (demo)</h2>
+        <div class="control">
+          <input id="ps_in" placeholder="https://example.com">
+          <button class="btn" onclick="pageSpeedDemo()">Test (demo)</button>
+        </div>
+        <div class="out" id="ps_out">Demo score</div>
+      </div>
+
+      <!-- TOOL 20: SEO Score (content heuristic) -->
+      <div class="card" id="tool20">
+        <h2>SEO Score (heuristic)</h2>
+        <div class="control">
+          <textarea id="seo_in" placeholder="Paste content or URL (text)..."></textarea>
+          <button class="btn" onclick="seoScore()">Analyze</button>
+        </div>
+        <div class="out" id="seo_out"></div>
+      </div>
+
+      <!-- TOOL 21: Keyword Suggestion (from text) -->
+      <div class="card" id="tool21">
+        <h2>Keyword Suggestion</h2>
+        <div class="control">
+          <input id="kws_in" placeholder="Enter seed keyword or text">
+          <button class="btn" onclick="kwSuggest()">Suggest</button>
+        </div>
+        <div class="out" id="kws_out"></div>
+      </div>
+
+      <!-- TOOL 22: LSI Keyword Finder (simple frequency) -->
+      <div class="card" id="tool22">
+        <h2>LSI Keyword Finder (freq)</h2>
+        <div class="control">
+          <textarea id="lsi_in" placeholder="Paste related text..."></textarea>
+          <button class="btn" onclick="lsiFind()">Find LSI</button>
+        </div>
+        <div class="out" id="lsi_out"></div>
+      </div>
+
+      <!-- TOOL 23: Word Counter -->
+      <div class="card" id="tool23">
+        <h2>Word Counter</h2>
+        <div class="control">
+          <textarea id="wc_in" placeholder="Paste text"></textarea>
+          <button class="btn" onclick="wordCount()">Count</button>
+        </div>
+        <div class="out" id="wc_out"></div>
+      </div>
+
+      <!-- TOOL 24: Character Counter -->
+      <div class="card" id="tool24">
+        <h2>Character Counter</h2>
+        <div class="control">
+          <textarea id="cc_in" placeholder="Paste text"></textarea>
+          <button class="btn" onclick="charCount()">Count</button>
+        </div>
+        <div class="out" id="cc_out"></div>
+      </div>
+
+      <!-- TOOL 25: Plagiarism (demo only) -->
+      <div class="card" id="tool25">
+        <h2>Plagiarism Checker (demo)</h2>
+        <div class="control">
+          <textarea id="plag_in" placeholder="Paste text (demo)"></textarea>
+          <button class="btn" onclick="plagDemo()">Check</button>
+        </div>
+        <div class="out" id="plag_out">Demo similarity % (local estimate)</div>
+      </div>
+
+      <!-- TOOL 26: H1-H6 Tag Analyzer -->
+      <div class="card" id="tool26">
+        <h2>H1-H6 Tag Analyzer</h2>
+        <div class="control">
+          <textarea id="htag_in" placeholder="Paste HTML"></textarea>
+          <button class="btn" onclick="hTagAnalyze()">Analyze</button>
+        </div>
+        <div class="out" id="htag_out"></div>
+      </div>
+
+      <!-- TOOL 27: Internal Link Analyzer (simple count) -->
+      <div class="card" id="tool27">
+        <h2>Internal Link Analyzer</h2>
+        <div class="control">
+          <textarea id="ilink_in" placeholder="Paste HTML or list of URLs"></textarea>
+          <button class="btn" onclick="internalLinkAnalyze()">Analyze</button>
+        </div>
+        <div class="out" id="ilink_out"></div>
+      </div>
+
+      <!-- TOOL 28: External Link Analyzer -->
+      <div class="card" id="tool28">
+        <h2>External Link Analyzer</h2>
+        <div class="control">
+          <textarea id="elink_in" placeholder="Paste HTML or list of URLs"></textarea>
+          <button class="btn" onclick="externalLinkAnalyze()">Analyze</button>
+        </div>
+        <div class="out" id="elink_out"></div>
+      </div>
+
+      <!-- TOOL 29: Anchor Text Analyzer -->
+      <div class="card" id="tool29">
+        <h2>Anchor Text Analyzer</h2>
+        <div class="control">
+          <textarea id="anchor_in" placeholder="Paste HTML"></textarea>
+          <button class="btn" onclick="anchorAnalyze()">Analyze</button>
+        </div>
+        <div class="out" id="anchor_out"></div>
+      </div>
+
+      <!-- TOOL 30: Favicon Generator (placeholder guidance) -->
+      <div class="card" id="tool30">
+        <h2>Favicon Generator (guide)</h2>
+        <p class="small">Upload a 512×512 PNG named <code>favicon.png</code> to repo root. Use external tools to convert if needed.</p>
+        <div class="out">Place your favicon.png in repository root — browser will show it in tab.</div>
+      </div>
+
+      <!-- TOOL 31: OG Tag Generator -->
+      <div class="card" id="tool31">
+        <h2>Open Graph (OG) Tag Generator</h2>
+        <div class="control">
+          <input id="og_title" placeholder="OG Title">
+          <input id="og_desc" placeholder="OG Description">
+          <input id="og_image" placeholder="OG Image URL">
+          <button class="btn" onclick="ogGen()">Generate Tags</button>
+        </div>
+        <div class="out" id="og_out"></div>
+      </div>
+
+      <!-- TOOL 32: Twitter Card Generator -->
+      <div class="card" id="tool32">
+        <h2>Twitter Card Generator</h2>
+        <div class="control">
+          <input id="tc_title" placeholder="Title">
+          <input id="tc_desc" placeholder="Description">
+          <button class="btn" onclick="tcGen()">Generate</button>
+        </div>
+        <div class="out" id="tc_out"></div>
+      </div>
+
+      <!-- TOOL 33: Schema Markup Generator (Article JSON-LD) -->
+      <div class="card" id="tool33">
+        <h2>Schema Markup Generator (Article)</h2>
+        <div class="control">
+          <input id="sch_title" placeholder="Article title">
+          <input id="sch_author" placeholder="Author">
+          <input id="sch_date" placeholder="Publish date (YYYY-MM-DD)">
+          <button class="btn" onclick="schemaGen()">Generate</button>
+        </div>
+        <div class="out" id="sch_out"></div>
+    
