@@ -119,6 +119,26 @@
   <a href="#keyword-density">Keyword Density Checker</a>
   <a href="#case-converter">Text Case Converter</a>
   <a href="#char-counter">Character Counter</a>
+  <a href="#robots-tool">Robots.txt Generator</a>
+<a href="#sitemap-tool">Sitemap Generator</a>
+<a href="#meta-tag-tool">Meta Tag Generator</a>
+<a href="#broken-link-tool">Broken Link Checker</a>
+<a href="#backlink-tool">Backlink Analyzer</a>
+<a href="#redirect-tool">Redirect Checker</a>
+<a href="#dns-tool">DNS Lookup</a>
+<a href="#ip-tool">IP Finder</a>
+<a href="#status-tool">Website Status Checker</a>
+<a href="#header-tool">HTTP Header Viewer</a>
+<a href="#json-tool">JSON Formatter</a>
+<a href="#css-tool">CSS Minifier</a>
+<a href="#js-tool">JS Beautifier</a>
+<a href="#html-encode-tool">HTML Encoder / Decoder</a>
+<a href="#regex-tool">Regex Tester</a>
+<a href="#word-mixer-tool">Word Mixer</a>
+<a href="#text-replacer-tool">Text Replacer</a>
+<a href="#diff-tool">Text Difference Checker</a>
+<a href="#slug-tool">Slug Generator</a>
+  
   <!-- Add more links as needed -->
 </nav>
 
@@ -196,6 +216,28 @@
     <button onclick="countChars()">Count Characters</button>
     <p id="charResult"></p>
     </div>
+    <div class="tool" id="robots-tool">
+  <h2>Robots.txt Generator</h2>
+  <textarea id="robotsInput" placeholder="Enter rules..."></textarea>
+  <button onclick="generateRobots()">Generate</button>
+  <p id="robotsResult"></p>
+</div>
+
+<div class="tool" id="sitemap-tool">
+  <h2>Sitemap Generator</h2>
+  <textarea id="sitemapInput" placeholder="Enter URLs, one per line..."></textarea>
+  <button onclick="generateSitemap()">Generate</button>
+  <p id="sitemapResult"></p>
+</div>
+
+<div class="tool" id="meta-tag-tool">
+  <h2>Meta Tag Generator</h2>
+  <input type="text" id="metaTitle" placeholder="Title">
+  <textarea id="metaDescription" placeholder="Description"></textarea>
+  <button onclick="generateMetaTags()">Generate</button>
+  <p id="metaTagResult"></p>
+</div>
+    
     <!-- Continue up to 50 -->
   </div>
 
@@ -333,6 +375,27 @@ function countChars() {
   const val = document.getElementById('charInput').value;
   document.getElementById('charResult').innerText = `Total Characters: ${val.length}`;
 }
+
+  // Robots.txt Generator
+function generateRobots() {
+  const val = document.getElementById('robotsInput').value;
+  document.getElementById('robotsResult').innerText = "User-agent: *\n" + val;
+}
+
+// Sitemap Generator
+function generateSitemap() {
+  const urls = document.getElementById('sitemapInput').value.split('\n');
+  const sitemap = urls.map(u => `<url><loc>${u.trim()}</loc></url>`).join('\n');
+  document.getElementById('sitemapResult').innerText = `<urlset>\n${sitemap}\n</urlset>`;
+}
+
+// Meta Tag Generator
+function generateMetaTags() {
+  const title = document.getElementById('metaTitle').value;
+  const desc = document.getElementById('metaDescription').value;
+  document.getElementById('metaTagResult').innerText = `<title>${title}</title>\n<meta name="description" content="${desc}">`;
+}
+  
 
   // Back to Top Button
 const backToTopButton = document.getElementById("backToTop");
