@@ -200,7 +200,18 @@
   </div>
 
 </div>
-
+<style>
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    transition: top 0.4s ease;
+  }
+  .nav-hidden {
+    top: -70px; /* navbar height जितनी लगभग */
+  }
+    </style>
+  
 <footer>
   &copy; <span id="year"></span> Vbanerjee SEO Tools. All rights reserved.
   <!-- Back to Top Button -->
@@ -332,6 +343,22 @@ window.onscroll = function() {
 backToTopButton.addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
+  // Auto Hide Navigation Bar
+let lastScrollTop = 0;
+window.addEventListener("scroll", function() {
+  const nav = document.querySelector("nav");
+  const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScroll > lastScrollTop) {
+    // नीचे जा रहे हैं — navbar छुपाओ
+    nav.classList.add("nav-hidden");
+  } else {
+    // ऊपर जा रहे हैं — navbar दिखाओ
+    nav.classList.remove("nav-hidden");
+  }
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // negative scroll रोकने के लिए
+});
+  
   // Scroll Progress Bar
 window.addEventListener("scroll", function() {
   const scrollBar = document.getElementById("scrollBar");
