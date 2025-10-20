@@ -273,6 +273,15 @@
         </div>
         <pre id="dnsOut" class="out">If browser blocks CORS, use a server-side API.</pre>
     </section>
+
+    <section class="card" id="ip-tool">
+        <h2>IP Finder</h2>
+        <input id="ipDomain" placeholder="Enter domain (example.com) or leave blank for your IP">
+        <div class="row">
+          <button class="btn" onclick="findIP()">Find IP</button>
+        </div>
+        <pre id="ipOut" class="out">Result will appear here</pre>
+    </section>
     
     <!-- Continue up to 50 -->
   </div>
@@ -524,6 +533,20 @@ window.addEventListener("scroll", function() {
         document.getElementById('dnsOut').innerText = 'DNS lookup failed (CORS or network). Use server-side API if blocked.';
       }
     }
+  // IP Finder
+    async function findIP(){
+      const d = (document.getElementById('ipDomain').value||'').trim();
+      if(!d){
+        // find visitor IP using ipify (may work)
+        try{
+          const res = await fetch('https://api.ipify.org?format=json');
+          const j = await res.json();
+          document.getElementById('ipOut').innerText = `Your IP: ${j.ip}`;
+        }catch(e){
+          document.getElementById('ipOut').innerText = 'Unable to get IP (CORS/network).';
+        }
+        return;
+           }
   
       
 </script>
