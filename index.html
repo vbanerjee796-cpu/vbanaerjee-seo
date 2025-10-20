@@ -239,18 +239,17 @@
   <p id="metaTagResult"></p>
 </div>
     
-    <div class="tool" id="broken-link-tool">
-        <h2>Broken Link Checker (simple)</h2>
-        <textarea id="brokenLinksInput" placeholder="Enter URLs to check (one per line)"></textarea>
-        <button onclick="checkBrokenLinks()">Check Links</button>
-        <p id="brokenlinkResult"></p>
-        <pre id="brokenOut" class="out">Results will appear here. Note: CORS may block some checks in browser.</pre>
-  </div>
+<div class="tool" id="broken-link-tool">
+  <h2>Broken Link Checker (simple)</h2>
+  <textarea id="brokenLinksInput" placeholder="Enter URLs to check (one per line)"></textarea>
+  <button onclick="checkBrokenLinks()">Check Links</button>
+  <p id="brokenlinkResult"></p>
+</div>
         
-    <div class="tool" id="backlink-tool">
+    <div class="tool" id="analyzer-tool">
         <h2>Backlink Analyzer (demo)</h2>
         <textarea id="backlinksInput" placeholder="Enter Urls to Analyze"></textarea>
-        <button onclick="analyzeBacklinks()">Analyze Links(demo)</button>
+        <button onclick="analyzeBacklinks()">Check Links</button>
         <p id="backlinkResult"></p>
         <pre id="backlinkOut" class="out">This is a demo analyzer — real backlink data needs external APIs.</pre>
   </div>
