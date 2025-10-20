@@ -282,7 +282,15 @@
         </div>
         <pre id="ipOut" class="out">Result will appear here</pre>
     </section>
-    
+
+    <section class="card" id="status-tool">
+        <h2>Website Status Checker</h2>
+        <input id="statusUrl" placeholder="Enter URL (https://...)">
+        <div class="row">
+          <button class="btn" onclick="checkStatus()">Check Status</button>
+        </div>
+        <pre id="statusOut" class="out">Result will appear here</pre>
+    </section>
     <!-- Continue up to 50 -->
   </div>
 
@@ -556,6 +564,17 @@ window.addEventListener("scroll", function() {
         else document.getElementById('ipOut').innerText = 'No A records found or blocked.';
       }catch(e){
         document.getElementById('ipOut').innerText = 'Domain lookup failed (CORS).';
+      }
+    }
+  // Website status
+    async function checkStatus(){
+      const u = (document.getElementById('statusUrl').value||'').trim();
+      if(!u){ document.getElementById('statusOut').innerText='Enter a URL'; return; }
+      try{
+        const res = await fetch(u, {method:'GET', mode:'cors', cache:'no-store'});
+        document.getElementById('statusOut').innerText = `Status: ${res.status} ${res.statusText}`;
+      }catch(e){
+        document.getElementById('statusOut').innerText = 'Unable to fetch status (CORS or network). Consider server-side check.';
       }
     }
   
