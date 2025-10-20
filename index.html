@@ -247,14 +247,13 @@
         <pre id="brokenOut" class="out">Results will appear here. Note: CORS may block some checks in browser.</pre>
  </div>
         
-    <section class="card" id="backlink-tool">
+    <div class="tool" id="back-link-tool">
         <h2>Backlink Analyzer (demo)</h2>
-        <input id="backlinkUrl" placeholder="Enter URL to analyze">
-        <div class="row">
-          <button class="btn" onclick="analyzeBacklinks()">Analyze (demo)</button>
-        </div>
+        <textarea id="backlinksInput" placeholder="Enter URL to analyze"></textarea>
+        <button onclick="analyzeBacklinks()">Analyze (demo)</button>
+        <p id="backlinkresult"></p>
         <pre id="backlinkOut" class="out">This is a demo analyzer — real backlink data needs external APIs.</pre>
-    </section>
+  </div>
 
     <section class="card" id="redirect-tool">
         <h2>Redirect Checker</h2>
