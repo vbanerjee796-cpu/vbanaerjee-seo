@@ -301,7 +301,22 @@ function countChars() {
   const val = document.getElementById('charInput').value;
   document.getElementById('charResult').innerText = `Total Characters: ${val.length}`;
 }
-  
+
+  // Back to Top Button
+const backToTopButton = document.getElementById("backToTop");
+
+window.onscroll = function() {
+  if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+    backToTopButton.style.display = "block";
+  } else {
+    backToTopButton.style.display = "none";
+  }
+};
+
+backToTopButton.addEventListener("click", () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+      
 </script>
 
 </body>
