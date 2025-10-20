@@ -216,6 +216,7 @@
     <button onclick="countChars()">Count Characters</button>
     <p id="charResult"></p>
     </div>
+    
     <div class="tool" id="robots-tool">
   <h2>Robots.txt Generator</h2>
   <textarea id="robotsInput" placeholder="Enter rules..."></textarea>
@@ -237,11 +238,12 @@
   <button onclick="generateMetaTags()">Generate</button>
   <p id="metaTagResult"></p>
 </div>
-    <section class="card" id="broken-link-tool">
+    
+    <div class="tool" id="broken-link-tool">
         <h2>Broken Link Checker (simple)</h2>
         <textarea id="brokenLinksInput" placeholder="Enter URLs to check (one per line)"></textarea>
-        <div class="row">
-          <button class="btn" onclick="checkBrokenLinks()">Check Links</button>
+        <button onclick="checkBrokenLinks()">Check Links</button>
+        <p id="brokenlinkresult"></p>
         </div>
         <pre id="brokenOut" class="out">Results will appear here. Note: CORS may block some checks in browser.</pre>
     </section>
