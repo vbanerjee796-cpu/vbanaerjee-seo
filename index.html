@@ -246,6 +246,15 @@
         <pre id="brokenOut" class="out">Results will appear here. Note: CORS may block some checks in browser.</pre>
     </section>
     
+    <section class="card" id="backlink-tool">
+        <h2>Backlink Analyzer (demo)</h2>
+        <input id="backlinkUrl" placeholder="Enter URL to analyze">
+        <div class="row">
+          <button class="btn" onclick="analyzeBacklinks()">Analyze (demo)</button>
+        </div>
+        <pre id="backlinkOut" class="out">This is a demo analyzer — real backlink data needs external APIs.</pre>
+      </section
+    
     <!-- Continue up to 50 -->
   </div>
 
@@ -458,6 +467,14 @@ window.addEventListener("scroll", function() {
         }
       }
     }
+
+  function analyzeBacklinks(){
+      const u = (document.getElementById('backlinkUrl').value||'').trim();
+      if(!u){ document.getElementById('backlinkOut').innerText='Enter a URL'; return; }
+      // Demo: provide suggestions how to check backlinks and generate example search links
+      const demo = `Backlink data requires third-party services (Ahrefs/Moz/MAJESTIC). Demo suggestions:\n\n1) Search for backlinks via Google: site:${u} -useful\n2) Use free backlink checkers online (they need API keys)\n\n(For real backlink data, integrate a backlink API service.)`;
+      document.getElementById('backlinkOut').innerText = demo;
+  }
   
       
 </script>
