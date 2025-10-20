@@ -237,6 +237,14 @@
   <button onclick="generateMetaTags()">Generate</button>
   <p id="metaTagResult"></p>
 </div>
+    <section class="card" id="broken-link-tool">
+        <h2>Broken Link Checker (simple)</h2>
+        <textarea id="brokenLinksInput" placeholder="Enter URLs to check (one per line)"></textarea>
+        <div class="row">
+          <button class="btn" onclick="checkBrokenLinks()">Check Links</button>
+        </div>
+        <pre id="brokenOut" class="out">Results will appear here. Note: CORS may block some checks in browser.</pre>
+    </section>
     
     <!-- Continue up to 50 -->
   </div>
@@ -435,6 +443,21 @@ window.addEventListener("scroll", function() {
   const scrolled = (scrollTop / scrollHeight) * 100;
   scrollBar.style.width = scrolled + "%";
 });
+
+  // Broken link check - best-effort (CORS may block)
+    async function checkBrokenLinks(){
+      const lines = (document.getElementById('brokenLinksInput').value||'').split('\n').map(s=>s.trim()).filter(Boolean);
+      if(!lines.length){ document.getElementById('brokenOut').innerText='Enter at least one URL'; return; }
+      document.getElementById('brokenOut').innerText = 'Checking... (may be slow)\n';
+      for(const url of lines){
+        try{
+          const res = await fetch(url, {method:'HEAD', mode:'cors', cache:'no-store'});
+          document.getElementById('brokenOut').innerText += `${url} → ${res.status} ${res.statusText}\n`;
+        }catch(e){
+          document.getElementById('brokenOut').innerText += `${url} → Error (likely CORS or network). Try server-side checker.\n`;
+        }
+      }
+    }
   
       
 </script>
