@@ -263,6 +263,16 @@
         </div>
         <pre id="redirectOut" class="out">Result will appear here (may be blocked by CORS).</pre>
     </section>
+
+    <section class="card" id="dns-tool">
+        <h2>DNS Lookup (DoH - best-effort)</h2>
+        <input id="dnsName" placeholder="Enter domain (example.com)">
+        <div class="row">
+          <select id="dnsType"><option>A</option><option>AAAA</option><option>CNAME</option><option>MX</option></select>
+          <button class="btn" onclick="dnsLookup()">Lookup</button>
+        </div>
+        <pre id="dnsOut" class="out">If browser blocks CORS, use a server-side API.</pre>
+    </section>
     
     <!-- Continue up to 50 -->
   </div>
@@ -498,6 +508,22 @@ window.addEventListener("scroll", function() {
         document.getElementById('redirectOut').innerText = 'Error fetching URL (likely CORS). Use a server-side redirect checker or public API.';
       }
           }
+  // DNS Lookup using Cloudflare DoH (best-effort; may be blocked)
+    async function dnsLookup(){
+      const name = (document.getElementById('dnsName').value||'').trim();
+      const type = (document.getElementById('dnsType').value||'A').toUpperCase();
+      if(!name){ document.getElementById('dnsOut').innerText='Enter a domain'; return; }
+      document.getElementById('dnsOut').innerText = 'Querying DNS (DoH)...';
+      try{
+        const url = `https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(name)}&type=${encodeURIComponent(type)}`;
+        const res = await fetch(url, {headers:{accept:'application/dns-json'}, mode:'cors'});
+        if(!res.ok){ document.getElementById('dnsOut').innerText = `DNS query failed: ${res.status}`; return; }
+        const data = await res.json();
+        document.getElementById('dnsOut').innerText = JSON.stringify(data, null, 2);
+      }catch(e){
+        document.getElementById('dnsOut').innerText = 'DNS lookup failed (CORS or network). Use server-side API if blocked.';
+      }
+    }
   
       
 </script>
