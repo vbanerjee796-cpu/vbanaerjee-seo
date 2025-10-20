@@ -253,7 +253,16 @@
           <button class="btn" onclick="analyzeBacklinks()">Analyze (demo)</button>
         </div>
         <pre id="backlinkOut" class="out">This is a demo analyzer — real backlink data needs external APIs.</pre>
-      </section
+    </section>
+
+    <section class="card" id="redirect-tool">
+        <h2>Redirect Checker</h2>
+        <input id="redirectUrl" placeholder="Enter URL to check redirects">
+        <div class="row">
+          <button class="btn" onclick="checkRedirect()">Check</button>
+        </div>
+        <pre id="redirectOut" class="out">Result will appear here (may be blocked by CORS).</pre>
+    </section>
     
     <!-- Continue up to 50 -->
   </div>
@@ -475,6 +484,20 @@ window.addEventListener("scroll", function() {
       const demo = `Backlink data requires third-party services (Ahrefs/Moz/MAJESTIC). Demo suggestions:\n\n1) Search for backlinks via Google: site:${u} -useful\n2) Use free backlink checkers online (they need API keys)\n\n(For real backlink data, integrate a backlink API service.)`;
       document.getElementById('backlinkOut').innerText = demo;
   }
+
+  // --- Web utilities ---
+    async function checkRedirect(){
+      const url = (document.getElementById('redirectUrl').value||'').trim();
+      if(!url){ document.getElementById('redirectOut').innerText='Enter a URL'; return; }
+      document.getElementById('redirectOut').innerText = 'Checking redirect chain...\n';
+      try{
+        const res = await fetch(url, {method:'GET', mode:'cors', redirect:'follow'});
+        const final = res.url || 'unknown';
+        document.getElementById('redirectOut').innerText += `Final URL: ${final}\nStatus: ${res.status}\n(Note: some servers block CORS; if blocked result may show error)`;
+      }catch(e){
+        document.getElementById('redirectOut').innerText = 'Error fetching URL (likely CORS). Use a server-side redirect checker or public API.';
+      }
+          }
   
       
 </script>
