@@ -191,68 +191,67 @@
     <textarea id="wordInput" placeholder="Type or paste your content here..."></textarea>
     <button onclick="countWords()">Count Words</button>
     <p id="wordResult"></p>
-    </div>
+ </div>
     
-    <div class="tool" id="keyword-density">
+ <div class="tool" id="keyword-density">
     <h2>Keyword Density Checker</h2>
     <textarea id="densityInput" placeholder="Enter your article..."></textarea>
     <input type="text" id="keywordInput" placeholder="Enter keyword">
     <button onclick="checkDensity()">Check Density</button>
     <p id="densityResult"></p>
-    </div>
+ </div>
     
-    <div class="tool" id="case-converter">
+ <div class="tool" id="case-converter">
     <h2>Text Case Converter</h2>
     <textarea id="caseInput" placeholder="Enter text"></textarea>
     <button onclick="toUpper()">UPPERCASE</button>
     <button onclick="toLower()">lowercase</button>
     <button onclick="toTitle()">Title Case</button>
     <p id="caseResult"></p>
-    </div>
+ </div>
 
-    <div class="tool" id="char-counter">
+<div class="tool" id="char-counter">
     <h2>Character Counter</h2>
     <textarea id="charInput" placeholder="Enter text"></textarea>
     <button onclick="countChars()">Count Characters</button>
     <p id="charResult"></p>
-    </div>
+ </div>
     
-    <div class="tool" id="robots-tool">
-  <h2>Robots.txt Generator</h2>
-  <textarea id="robotsInput" placeholder="Enter rules..."></textarea>
-  <button onclick="generateRobots()">Generate</button>
-  <p id="robotsResult"></p>
-</div>
+ <div class="tool" id="robots-tool">
+    <h2>Robots.txt Generator</h2>
+    <textarea id="robotsInput" placeholder="Enter rules..."></textarea>
+    <button onclick="generateRobots()">Generate</button>
+    <p id="robotsResult"></p>
+ </div>
 
-<div class="tool" id="sitemap-tool">
-  <h2>Sitemap Generator</h2>
-  <textarea id="sitemapInput" placeholder="Enter URLs, one per line..."></textarea>
-  <button onclick="generateSitemap()">Generate</button>
-  <p id="sitemapResult"></p>
+ <div class="tool" id="sitemap-tool">
+    <h2>Sitemap Generator</h2>
+    <textarea id="sitemapInput" placeholder="Enter URLs, one per line..."></textarea>
+    <button onclick="generateSitemap()">Generate</button>
+    <p id="sitemapResult"></p>
 </div>
 
 <div class="tool" id="meta-tag-tool">
-  <h2>Meta Tag Generator</h2>
-  <input type="text" id="metaTitle" placeholder="Title">
-  <textarea id="metaDescription" placeholder="Description"></textarea>
-  <button onclick="generateMetaTags()">Generate</button>
-  <p id="metaTagResult"></p>
+    <h2>Meta Tag Generator</h2>
+    <input type="text" id="metaTitle" placeholder="Title">
+    <textarea id="metaDescription" placeholder="Description"></textarea>
+    <button onclick="generateMetaTags()">Generate</button>
+    <p id="metaTagResult"></p>
 </div>
     
 <div class="tool" id="broken-link-tool">
-  <h2>Broken Link Checker (simple)</h2>
-  <textarea id="brokenLinksInput" placeholder="Enter URLs to check (one per line)"></textarea>
-  <button onclick="checkBrokenLinks()">Check Links</button>
-  <p id="brokenlinkResult"></p>
+    <h2>Broken Link Checker (simple)</h2>
+    <textarea id="brokenLinksInput" placeholder="Enter URLs to check (one per line)"></textarea>
+    <button onclick="checkBrokenLinks()">Check Links</button>
+    <p id="brokenlinkResult"></p>
 </div>
         
-    <div class="tool" id="analyzer-tool">
-        <h2>Backlink Analyzer (demo)</h2>
-        <textarea id="backlinksInput" placeholder="Enter Urls to Analyze"></textarea>
-        <button onclick="analyzeBacklinks()">Check Links</button>
-        <p id="backlinkResult"></p>
-        <pre id="backlinkOut" class="out">This is a demo analyzer — real backlink data needs external APIs.</pre>
-  </div>
+<div class="tool" id="analyzer-tool">
+    <h2>Backlink Analyzer</h2>
+    <textarea id="backlinksInput" placeholder="Enter Urls to Analyze (one per line"></textarea>
+    <button onclick="checkBacklinks()">Analyze Links</button>
+    <p id="backlinkResult"></p>      
+</div>
 
     <section class="card" id="redirect-tool">
         <h2>Redirect Checker</h2>
