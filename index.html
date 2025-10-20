@@ -547,6 +547,17 @@ window.addEventListener("scroll", function() {
         }
         return;
            }
+      // resolve domain via Cloudflare DoH A record
+      try{
+        const res = await fetch(`https://cloudflare-dns.com/dns-query?name=${encodeURIComponent(d)}&type=A`, {headers:{accept:'application/dns-json'}});
+        if(!res.ok){ document.getElementById('ipOut').innerText = `Lookup failed: ${res.status}`; return; }
+        const j = await res.json();
+        if(j.Answer && j.Answer.length) document.getElementById('ipOut').innerText = j.Answer.map(a=>a.data).join('\n');
+        else document.getElementById('ipOut').innerText = 'No A records found or blocked.';
+      }catch(e){
+        document.getElementById('ipOut').innerText = 'Domain lookup failed (CORS).';
+      }
+    }
   
       
 </script>
